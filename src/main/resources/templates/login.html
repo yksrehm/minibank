@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/header :: head"></head>
+
+<body class="login-body">
+
+
+<main role="main" class="login-main">
+
+    <div id="div-login" class="container-fluid con-login">
+
+        <form class="form-signin" th:action="@{/login}" method="post">
+            <div class="login-header">Mini Bank</div>
+            <label for="username" class="sr-only">Username</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input type="username" id="username" name="username" class="form-control" placeholder="Username"
+                       required="" autofocus="autofocus">
+            </div>
+
+            <label for="password" class="sr-only">Password</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-unlock-alt"></i></span>
+                </div>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                       required="required">
+            </div>
+
+            <div th:if="${param.error}">
+                <div class="alert alert-danger" role="alert">
+                    <th:block>
+                        <span th:if="${session['SPRING_SECURITY_LAST_EXCEPTION'].message != 'User is disabled'}">
+                            Incorrect username or password.
+                        </span>
+                        <span th:if="${session['SPRING_SECURITY_LAST_EXCEPTION'].message == 'User is disabled'}">
+                            User is disabled.
+                        </span>
+                    </th:block>
+
+                </div>
+            </div>
+
+            <div th:if="${param.logout}">
+                <div class="alert alert-info" role="alert">
+                    You have been logged out.
+                </div>
+            </div>
+
+            <button class="btn btn-success btn-login btn-block" type="submit">LOGIN</button>
+
+            <hr class="hr-login">
+            <p class="copyright-footer">
+                <span>Mini Bank</span>
+                <a href="http://www.hirememe.com.ph/" target="_blank">&nbsp;<b>by Mhersky Limbo.</b></a></p>
+        </form>
+
+    </div>
+</main>
+
+<th:block th:replace="fragments/footer :: javascripts"></th:block>
+
+</body>
+</html>

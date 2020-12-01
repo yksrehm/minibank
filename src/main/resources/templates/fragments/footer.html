@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1"/>
+<title>Footer</title>
+</head>
+<body>
+<footer class="footer float-left" th:fragment="footer">
+    <span>Mini Bank</span>
+    </footer>
+
+<th:block th:fragment="javascripts">
+
+    <script th:src="@{/plugins/jquery/jquery.min.js}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <!-- jQuery,Popper,Bootstrap JS -->
+    <!--<script th:src="@{/plugins/bootstrap4/js/jquery-3.3.1.slim.min.js}"></script>-->
+    <script th:src="@{/plugins/bootstrap4/js/popper.min.js}"></script>
+    <script th:src="@{/plugins/bootstrap4/js/bootstrap.min.js}"></script>
+    <!--DataTables-->
+    <script th:src="@{/plugins/datatables/js/jquery.dataTables.min.js}"></script>
+    <!--Bootstrap Date Picker-->
+    <script th:src="@{/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js}"></script>
+    <script th:src="@{/plugins/datatables/js/dataTables.bootstrap4.min.js}"></script>
+    <!--MomentsJS-->
+    <script th:src="@{/plugins/momentjs/moment.js}"></script>
+    <!--DatePrototype-->
+    <script th:src="@{/plugins/date-prototype/Date.prototype.format.js}"></script>
+
+    <!--<script th:src="@{/js/utils/util.js}"></script>-->
+
+</th:block>
+</body>
+</html>

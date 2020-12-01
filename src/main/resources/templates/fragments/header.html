@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<body>
+
+<head th:fragment="head">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <!-- Bootstrap DatePicker -->
+    <link th:href="@{/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css}" type="text/css" rel="stylesheet"/>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/plugins/bootstrap4/css/bootstrap.min.css}" type="text/css" rel="stylesheet"/>
+    <!-- Datables-->
+    <link th:href="@{/plugins/datatables/css/dataTables.bootstrap4.min.css}" type="text/css" rel="stylesheet"/>
+    <!-- Font Awesome-->
+    <link th:href="@{/plugins/fontawesome/web-fonts-with-css/css/fontawesome-all.min.css}" rel="stylesheet"
+          type="text/css"/>
+    <!-- My custom Styles -->
+    <link th:href="@{/css/buttons.css}" rel="stylesheet" type="text/css"/>
+    <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css"/>
+    <!-- Tab title-->
+    <title>MiniBank</title>
+</head>
+
+<header th:fragment="header">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom">
+        <a class="navbar-brand" href="/transaction"><span class="font-weight-bold">Mini Bank</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse bg-navcollapse" id="navbarCollapse">
+
+            <ul class="navbar-nav mr-auto">
+                <!--<li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN', 'USER')">-->
+                    <!--&lt;!&ndash;th:classappend="${#httpServletRequest.getRequestURI().startsWith('/dashboard') ? 'active':''}">&ndash;&gt;-->
+                    <!--<a class="nav-link" href="/dashboard"><i class="fas fa-tachometer-alt"></i>&nbsp;&nbsp;Dashboard</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN', 'USER')">-->
+                    <!--&lt;!&ndash;th:classappend="${#httpServletRequest.getRequestURI().startsWith('/alert') ? 'active':''}">&ndash;&gt;-->
+                    <!--<a class="nav-link" href="/alert/list"><i class="fas fa-exclamation-triangle"></i>&nbsp;&nbsp;Alerts</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN', 'USER')">-->
+                    <!--&lt;!&ndash;th:classappend="${#httpServletRequest.getRequestURI().startsWith('/application') ? 'active':''}">&ndash;&gt;-->
+                    <!--<a class="nav-link" href="/application/list"><i class="fas fa-link"></i>&nbsp;&nbsp;Applications</a>-->
+                <!--</li>-->
+                <!--<li class="nav-item" sec:authorize="hasAuthority('ADMIN')">-->
+                    <!--&lt;!&ndash;th:classappend="${#httpServletRequest.getRequestURI().startsWith('/rule') ? 'active':''}">&ndash;&gt;-->
+                    <!--<a class="nav-link" href="/rule/list"><i class="fas fa-pencil-alt"></i>&nbsp;&nbsp;Rules</a>-->
+                <!--</li>-->
+                <li class="nav-item" sec:authorize="hasAuthority('ADMIN', 'USER')">
+                    th:classappend="${#httpServletRequest.getRequestURI().startsWith('/transaction') ? 'active':''}">
+                    <a class="nav-link" href="/transaction"><i class="fas fa-user"></i>&nbsp;&nbsp;Transact</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <!--<div th:replace="fragments/tasks/notification :: notification"></div>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userMenu" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false"><span sec:authentication="name"
+                                                                        style="text-transform: uppercase"></span></a>
+                    <div class="dropdown-menu" style="font-size: 13px;" aria-labelledby="userMenu">
+                        <a class="dropdown-item" href="/user/resetPass">Change Password</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="/logout">
+                        <button type="button" class="btn btn-outline-light btn-logout">LOGOUT</button>
+                    </a>
+                </li>
+            </ul>
+
+        </div><!-- navbarCollapse -->
+    </nav>
+</header>
+</body>
+</html>

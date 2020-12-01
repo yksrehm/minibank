@@ -1,0 +1,7 @@
+-- Kindly run these scripts for user creation.
+INSERT INTO `minibank`.`ctrl_users` (`id`, `enabled`, `first_name`, `last_name`, `password`, `username`)
+ VALUES ('1', 1, 'admin', 'admin', '$2a$10$oKmcoDf83sLJav38BFoF0.vcHoqqwn9rQg.Jtkf8ZTt1DqALGzSjS', 'admin');
+INSERT INTO `minibank`.`ctrl_roles` (`id`, `description`, `role_name`) VALUES ('1', 'ADMIN', 'ADMIN');
+INSERT INTO `minibank`.`ctrl_roles` (`id`, `description`, `role_name`) VALUES ('2', 'USER', 'USER');
+INSERT INTO `minibank`.`ctrl_user_roles` (`user_id`, `role_id`) VALUES ('1', '2');
+INSERT INTO `minibank`.`ctrl_user_roles` (`user_id`, `role_id`) VALUES ('1', '1');
